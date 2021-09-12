@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Youtube Video Advanced Search App in Javascript</title>
+   <!--外部CSSを参照-->
+    <link
+  
+      rel="stylesheet"  
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <!--タイトル-->
+      <h1 class="text-center">Youtube 検索アプリケーション</h1>
+      <br />
+      <!--入力-->
+      <form id="myForm" autocomplete="off">
+        <div class="form-group">
+           <!--入力-->
+          <input
+            class="form-control"
+            type="text"
+            id="search"
+            placeholder="Topic"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="duration">時間の長さ:</label>
+          <select class="form-control" id="duration">
+            <option>any</option>
+            <option>short</option>
+            <option>medium</option>
+            <option>long</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="order">ソート順番:</label>
+          <select class="form-control" id="order">
+            <option>relevance</option>
+            <option>viewCount</option>
+            <option>videoCount</option>
+            <option>title</option>
+            <option>rating</option>
+            <option>date</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fromdate">Before:</label>
+          <input type="text" class="form-control" name="" id="beforedate" />
+        </div>
+        <div class="form-group">
+          <label for="fromdate">After:</label>
+          <input type="text" class="form-control" name="" id="afterdate" />
+        </div>
+        <div class="form-group">
+          <button id="btn" class="btn btn-danger btn-block">
+            検索ボタン
+          </button>
+        </div>
+      </form>
+      <table style="display: none" id="table" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>サムネイル</th>
+            <th>チャンネル名</th>
+            <th>投稿時間</th>
+          </tr>
+        </thead>
+        <tbody id="results"></tbody>
+      </table>
+      <div id="pager">
+        <ul id="pagination" class="pagination-sm"></ul>
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+   <!--エクセルの出力-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.2/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+  <script>
+    $("#beforedate").datepicker({});
+    $("#afterdate").datepicker({});
+  </script>
+  <script src="script.js"></script>
+</html>
